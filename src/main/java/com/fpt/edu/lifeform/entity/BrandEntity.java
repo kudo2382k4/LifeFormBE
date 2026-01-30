@@ -14,7 +14,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "brand")
+@Table(name = "brands")
 public class BrandEntity extends BaseEntity {
     @Column(length = 255)
     String name;

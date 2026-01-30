@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user_notification")
+@Table(name = "user_notifications")
 public class UserNotificationEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "product_image")
+@Table(name = "product_images")
 public class ProductImageEntity extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     String url;

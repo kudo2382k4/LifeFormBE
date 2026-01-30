@@ -15,7 +15,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "cart_detail")
+@Table(name = "cart_details")
 public class CartDetailEntity extends BaseEntity {
     int quantity;
 

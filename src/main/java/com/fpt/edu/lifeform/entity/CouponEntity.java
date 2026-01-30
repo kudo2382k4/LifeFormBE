@@ -17,7 +17,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "coupon")
+@Table(name = "coupons")
 public class CouponEntity extends BaseEntity {
     @Column(nullable = false, unique = true, length = 50)
     String code;

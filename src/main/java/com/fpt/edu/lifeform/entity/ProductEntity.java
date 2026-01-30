@@ -14,7 +14,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product")
+@Table(name = "products")
 public class ProductEntity extends BaseEntity {
 
     @Column(nullable = false)

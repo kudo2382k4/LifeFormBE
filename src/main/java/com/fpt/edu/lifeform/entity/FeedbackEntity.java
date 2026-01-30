@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.Range;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "feedback")
+@Table(name = "feedbacks")
 public class FeedbackEntity extends BaseEntity {
     @Range(min = 1, max = 5)
     int star;

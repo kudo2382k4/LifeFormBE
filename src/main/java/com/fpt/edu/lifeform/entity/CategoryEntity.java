@@ -14,7 +14,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "category")
+@Table(name = "categories")
 public class CategoryEntity extends BaseEntity {
 
     @Column(nullable = false, length = 255)

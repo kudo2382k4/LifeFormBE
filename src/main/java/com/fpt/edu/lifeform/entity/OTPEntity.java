@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "otp")
+@Table(name = "otps")
 public class OTPEntity extends BaseEntity {
     @Column(nullable = false, length = 10)
     String code;

@@ -15,7 +15,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "notification")
+@Table(name = "notifications")
 public class NotificationEntity extends BaseEntity {
     @Column(nullable = false, length = 255)
     String title;

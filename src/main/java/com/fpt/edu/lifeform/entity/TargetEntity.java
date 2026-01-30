@@ -17,7 +17,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "target")
+@Table(name = "targets")
 public class TargetEntity extends BaseEntity {
     @Column(nullable = false, length = 255)
     String name;

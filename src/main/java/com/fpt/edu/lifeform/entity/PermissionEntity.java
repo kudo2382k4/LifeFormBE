@@ -17,7 +17,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "permission")
+@Table(name = "permissions")
 public class PermissionEntity extends BaseEntity {
 
     @Column(length = 255, nullable = false)

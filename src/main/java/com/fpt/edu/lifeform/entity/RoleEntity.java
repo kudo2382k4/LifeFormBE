@@ -16,7 +16,7 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "role")
+@Table(name = "roles")
 public class RoleEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)

@@ -15,7 +15,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "size")
+@Table(name = "sizes")
 public class SizeEntity extends BaseEntity {
 
     @Column(nullable = false, unique = true, length = 50)

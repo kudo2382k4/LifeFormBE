@@ -14,7 +14,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "cart")
+@Table(name = "carts")
 public class CartEntity extends BaseEntity {
     @OneToOne
     @JoinColumn(name = "user_id")

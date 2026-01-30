@@ -14,7 +14,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "slider")
+@Table(name = "sliders")
 public class SliderEntity extends BaseEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     String url;

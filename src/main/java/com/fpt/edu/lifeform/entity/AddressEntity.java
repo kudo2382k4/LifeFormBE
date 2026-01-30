@@ -14,7 +14,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "address")
+@Table(name = "addresses")
 public class AddressEntity extends BaseEntity {
     String street;
 

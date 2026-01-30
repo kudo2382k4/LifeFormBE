@@ -15,7 +15,7 @@ import java.util.Collection;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "payment")
+@Table(name = "payments")
 public class PaymentEntity extends BaseEntity {
     @Column(nullable = false, length = 50)
     @Enumerated(EnumType.STRING)

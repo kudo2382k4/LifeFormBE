@@ -18,7 +18,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "promotion")
+@Table(name = "promotions")
 public class PromotionEntity extends BaseEntity {
     @Column(nullable = false, length = 255)
     String name;
