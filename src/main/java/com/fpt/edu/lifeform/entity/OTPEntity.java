@@ -1,10 +1,7 @@
 package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -25,6 +22,7 @@ public class OTPEntity extends BaseEntity {
     LocalDateTime expiredAt;
 
     @OneToOne
+    @JoinColumn(name = "user_id")
     UserEntity user;
 
 }

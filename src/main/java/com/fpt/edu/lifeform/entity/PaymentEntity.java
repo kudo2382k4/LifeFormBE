@@ -1,7 +1,7 @@
 package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
-import com.fpt.edu.lifeform.Util.Enum.PayMethodEnum;
+import com.fpt.edu.lifeform.utils.enums.PayMethodEnum;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;

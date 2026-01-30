@@ -1,7 +1,7 @@
 package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
-import com.fpt.edu.lifeform.Util.Enum.RoleEnum;
+import com.fpt.edu.lifeform.utils.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -24,7 +24,7 @@ public class RoleEntity extends BaseEntity {
     RoleEnum name;
 
     @ManyToMany
-    Collection<PermissionEntity> children;
+    Collection<PermissionEntity> permissions;
 
     @OneToMany(mappedBy = "role")
     Collection<UserEntity> userEntities;

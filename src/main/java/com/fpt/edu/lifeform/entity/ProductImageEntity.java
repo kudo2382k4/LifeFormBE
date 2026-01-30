@@ -1,10 +1,7 @@
 package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -21,5 +18,6 @@ public class ProductImageEntity extends BaseEntity {
     String url;
 
     @ManyToOne
+    @JoinColumn(name = "product_id")
     ProductEntity product;
 }

@@ -1,10 +1,7 @@
 package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.validator.constraints.Range;
@@ -25,9 +22,11 @@ public class FeedbackEntity extends BaseEntity {
     String content;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     UserEntity user;
 
     @ManyToOne
+    @JoinColumn(name = "product_id")
     ProductEntity product;
 
 }

@@ -1,8 +1,9 @@
 package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
-import com.fpt.edu.lifeform.Util.Enum.AccountTypeEnum;
-import com.fpt.edu.lifeform.Util.Enum.GenderEnum;
+
+import com.fpt.edu.lifeform.utils.enums.AccountTypeEnum;
+import com.fpt.edu.lifeform.utils.enums.GenderEnum;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -53,16 +54,18 @@ public class UserEntity extends BaseEntity {
     @OneToMany
     Collection<AddressEntity> addressEntities;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     OTPEntity otpEntity;
 
     @ManyToOne
+    @JoinColumn(name = "role_id")
     RoleEntity role;
 
     @OneToMany(mappedBy = "user")
     Collection<OrderEntity> orderEntities;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user")
+
     CartEntity cart;
 
     @OneToMany(mappedBy = "user")

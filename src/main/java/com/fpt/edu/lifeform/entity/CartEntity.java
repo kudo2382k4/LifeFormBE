@@ -1,10 +1,7 @@
 package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -20,6 +17,7 @@ import java.util.Collection;
 @Table(name = "cart")
 public class CartEntity extends BaseEntity {
     @OneToOne
+    @JoinColumn(name = "user_id")
     UserEntity user;
 
     @OneToMany(mappedBy = "cart")

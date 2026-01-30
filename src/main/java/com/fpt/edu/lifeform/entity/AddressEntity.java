@@ -25,6 +25,7 @@ public class AddressEntity extends BaseEntity {
     String phone;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     UserEntity user;
 
     @OneToMany(mappedBy = "address")

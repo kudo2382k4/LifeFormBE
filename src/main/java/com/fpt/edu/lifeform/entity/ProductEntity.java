@@ -33,15 +33,18 @@ public class ProductEntity extends BaseEntity {
     Collection<ProductImageEntity> productImages;
 
     @ManyToOne
+    @JoinColumn(name = "brand_id")
     BrandEntity brand;
 
     @ManyToMany
     Collection<TargetEntity> targets;
 
     @ManyToOne
+    @JoinColumn(name = "promotion_id")
     PromotionEntity promotion;
 
     @ManyToOne
+    @JoinColumn(name = "category_id")
     CategoryEntity category;
 
     @ManyToMany

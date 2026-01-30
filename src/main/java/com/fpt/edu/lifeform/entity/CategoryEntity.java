@@ -24,5 +24,6 @@ public class CategoryEntity extends BaseEntity {
     Collection<ProductEntity> products;
 
     @ManyToOne
+    @JoinColumn(name = "promotion_id")
     PromotionEntity promotion;
 }

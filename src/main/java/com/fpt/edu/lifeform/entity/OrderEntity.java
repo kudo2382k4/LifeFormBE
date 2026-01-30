@@ -25,15 +25,18 @@ public class OrderEntity extends BaseEntity {
     String orderCode;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     UserEntity user;
 
     @ManyToOne
+    @JoinColumn(name = "address_id")
     AddressEntity address;
 
     @ManyToMany
     Collection<PaymentEntity> payments;
 
     @ManyToOne
+    @JoinColumn(name = "coupon_id")
     CouponEntity coupon;
 
     @OneToMany(mappedBy = "order")

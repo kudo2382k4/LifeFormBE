@@ -2,6 +2,7 @@ package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.*;
@@ -19,8 +20,10 @@ public class CartDetailEntity extends BaseEntity {
     int quantity;
 
     @ManyToOne
+    @JoinColumn(name = "product_id")
     ProductEntity product;
 
     @ManyToOne
+    @JoinColumn(name = "cart_id")
     CartEntity cart;
 }

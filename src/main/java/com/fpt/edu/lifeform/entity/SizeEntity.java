@@ -1,7 +1,7 @@
 package com.fpt.edu.lifeform.entity;
 
 import com.fpt.edu.lifeform.entity.Parent.BaseEntity;
-import com.fpt.edu.lifeform.Util.Enum.SizeEnum;
+import com.fpt.edu.lifeform.utils.enums.SizeEnum;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
