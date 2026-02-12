@@ -1,8 +1,7 @@
 package com.fpt.edu.lifeform.exception;
 
 import com.fpt.edu.lifeform.dto.response.ApiResponse;
-import com.fpt.edu.lifeform.exception.custom.InvalidRequestInput;
-import com.fpt.edu.lifeform.exception.custom.NotFoundException;
+import com.fpt.edu.lifeform.exception.custom.*;
 import com.fpt.edu.lifeform.utils.BuildResponse;
 import org.hibernate.NonUniqueResultException;
 import org.springframework.http.HttpStatus;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.io.IOException;
+import java.rmi.AccessException;
 import java.util.Objects;
 
 @ControllerAdvice
@@ -28,6 +28,10 @@ public class GlobalExceptionHandler {
             IOException.class,
             ArrayIndexOutOfBoundsException.class,
             InvalidRequestInput.class,
+            InvalidTokenException.class,
+            AccessException.class,
+            RoleException.class,
+            AccountException.class
     })
     public ResponseEntity<ApiResponse<Void>> handleException(Exception e) {
         ApiResponse<Void> apiResponse = BuildResponse.buildApiResponse(
