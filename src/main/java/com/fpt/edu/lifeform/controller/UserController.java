@@ -1,15 +1,20 @@
 package com.fpt.edu.lifeform.controller;
 
 import com.fpt.edu.lifeform.dto.request.RegisterRequest;
+import com.fpt.edu.lifeform.dto.response.PageDetailsResponse;
+import com.fpt.edu.lifeform.dto.response.UserResponse;
 import com.fpt.edu.lifeform.exception.custom.NotFoundException;
 import com.fpt.edu.lifeform.service.OTPService;
 import com.fpt.edu.lifeform.service.UserService;
 import com.fpt.edu.lifeform.utils.annotation.ApiMessage;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/api/v1/user")
@@ -29,6 +34,15 @@ public class UserController {
     @GetMapping("/active/{code}")
     public ResponseEntity<Void> activeAccount(@PathVariable String code) throws NotFoundException {
         return ResponseEntity.ok(otpService.activeAccount(code));
+    }
+
+    @ApiMessage("Lấy toàn bộ người dùng thành công!")
+    @GetMapping
+    public ResponseEntity<PageDetailsResponse<List<UserResponse>>> getUsers(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size
+    ) {
+        return ResponseEntity.ok(userService.getAllUsers(page, size));
     }
 
 }

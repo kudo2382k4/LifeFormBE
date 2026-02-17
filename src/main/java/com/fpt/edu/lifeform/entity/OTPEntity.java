@@ -15,14 +15,25 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "otps")
-public class OTPEntity extends BaseEntity {
+public class OTPEntity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+
     @Column(nullable = false, length = 10)
     String code;
 
     LocalDateTime expiredAt;
 
+    LocalDateTime createdAt;
+
     @OneToOne
     @JoinColumn(name = "user_id")
     UserEntity user;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
 
 }

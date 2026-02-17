@@ -53,5 +53,14 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiResponse);
     }
 
+    @ExceptionHandler(value = UserException.class)
+    public ResponseEntity<ApiResponse<Object>> handleUserException(UserException e) {
+        ApiResponse<Object> apiResponse = new ApiResponse<>();
+        apiResponse.setMessage(e.getMessage());
+        apiResponse.setStatus(e.getStatus().value());
+        apiResponse.setErrorMessage("Not have user!");
+        return ResponseEntity.status(e.getStatus().value()).body(apiResponse);
+    }
+
 
 }

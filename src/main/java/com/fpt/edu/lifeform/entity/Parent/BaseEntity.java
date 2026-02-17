@@ -15,6 +15,7 @@ public class BaseEntity {
 
     LocalDateTime createdAt;
 
+    @Column(name = "updated_at")
     LocalDateTime updatedAt;
 
     public void initDefault() {

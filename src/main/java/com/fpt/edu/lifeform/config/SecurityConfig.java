@@ -38,6 +38,7 @@ public class SecurityConfig {
             "/api/v1/files",
             "/api/v1/user/register-request",
             "/api/v1/user/active/**",
+            "/api/v1/user"
     };
 
     private final SecurityUtil securityUtil;
