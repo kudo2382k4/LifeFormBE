@@ -31,7 +31,8 @@ public class GlobalExceptionHandler {
             InvalidTokenException.class,
             AccessException.class,
             RoleException.class,
-            AccountException.class
+            AccountException.class,
+            OtpException.class,
     })
     public ResponseEntity<ApiResponse<Void>> handleException(Exception e) {
         ApiResponse<Void> apiResponse = BuildResponse.buildApiResponse(

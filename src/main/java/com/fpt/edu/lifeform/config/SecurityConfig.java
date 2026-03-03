@@ -37,7 +37,10 @@ public class SecurityConfig {
             "/storage/**",
             "/api/v1/files",
             "/api/v1/user/register-request",
+            "/api/v1/user/request-reset-password",
+            "/api/v1/user/reset-password",
             "/api/v1/user/active/**",
+            "/api/v1/otp/**",
     };
 
     private final SecurityUtil securityUtil;

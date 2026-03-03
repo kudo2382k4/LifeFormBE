@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface UserRepo extends JpaSpecificationRepository<UserEntity, Long> {
     Optional<UserEntity> findByEmailAndAccountType(String email, AccountTypeEnum accountType);
     Optional<UserEntity> findByEmail(String email);
+    Optional<UserEntity> findByOtpEntity_Code(String code);
 
 }

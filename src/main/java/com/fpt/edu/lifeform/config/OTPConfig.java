@@ -5,15 +5,16 @@ import com.fpt.edu.lifeform.entity.UserEntity;
 import com.fpt.edu.lifeform.repository.OTPRepo;
 import com.fpt.edu.lifeform.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Component
+@EnableScheduling
 @RequiredArgsConstructor
 public class OTPConfig {
     private final OTPRepo otpRepo;
@@ -22,12 +23,11 @@ public class OTPConfig {
     @Scheduled(fixedRate = 90000) // Chạy mỗi 90 giây
     @Transactional
     public void removeAllExpiredOTP() {
-        Set<OTPEntity> expiredOTPCode = otpRepo.findAllExpiredOTP(Instant.now());
+        Set<OTPEntity> expiredOTPCode = otpRepo.findAllExpiredOTP(LocalDateTime.now());
         if (expiredOTPCode.isEmpty()) {
             System.out.println("Không có OTP hết hạn!");
             return;
         }
-
         Set<UserEntity> remainUsers = new HashSet<>();
         for (OTPEntity otpEntity : expiredOTPCode) {
             UserEntity user = otpEntity.getUser();

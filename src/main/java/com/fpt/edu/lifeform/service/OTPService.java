@@ -4,6 +4,7 @@ import com.fpt.edu.lifeform.dto.response.ApiResponse;
 import com.fpt.edu.lifeform.entity.OTPEntity;
 import com.fpt.edu.lifeform.entity.UserEntity;
 import com.fpt.edu.lifeform.exception.custom.NotFoundException;
+import com.fpt.edu.lifeform.exception.custom.OtpException;
 import com.fpt.edu.lifeform.repository.OTPRepo;
 import com.fpt.edu.lifeform.repository.UserRepo;
 import com.fpt.edu.lifeform.utils.BuildResponse;
@@ -56,16 +57,6 @@ public class OTPService {
         return null;
     }
 
-    public ApiResponse<Void> checkOTP(String code) {
-        OTPEntity otpCode = otpRepo.findByCode(code)
-                .orElseThrow(() -> new NotFoundException("Mã OTP sai!"));
-        if (otpCode.getExpiredAt().isBefore(LocalDateTime.now())) {
-            throw new NotFoundException("Mã OTP đã hết hạn!");
-        }
-        return BuildResponse.buildApiResponse(200, "Mã OTP hợp lệ!", null, null);
-    }
-
-
     @Transactional
     public Void activeAccount(String code) {
         OTPEntity otp = otpRepo.findByCode(code)
@@ -81,5 +72,13 @@ public class OTPService {
         otp.setUser(null);
         otpRepo.delete(otp);
         return null;
+    }
+
+    public boolean checkOtp(String code) {
+    OTPEntity otpEntity = otpRepo.findByCode(code).orElseThrow(() -> new NotFoundException("Mã OTP sai!"));
+    if(otpEntity.getExpiredAt().isBefore(LocalDateTime.now())) {
+        throw new OtpException("Mã Otp đã hết hạn!");
+    }
+    return true;
     }
 }

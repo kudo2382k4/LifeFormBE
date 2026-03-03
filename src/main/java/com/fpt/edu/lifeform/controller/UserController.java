@@ -1,6 +1,8 @@
 package com.fpt.edu.lifeform.controller;
 
+import com.fpt.edu.lifeform.dto.request.EmailRequest;
 import com.fpt.edu.lifeform.dto.request.RegisterRequest;
+import com.fpt.edu.lifeform.dto.request.ResetPasswordRequest;
 import com.fpt.edu.lifeform.exception.custom.NotFoundException;
 import com.fpt.edu.lifeform.service.OTPService;
 import com.fpt.edu.lifeform.service.UserService;
@@ -29,6 +31,18 @@ public class UserController {
     @GetMapping("/active/{code}")
     public ResponseEntity<Void> activeAccount(@PathVariable String code) throws NotFoundException {
         return ResponseEntity.ok(otpService.activeAccount(code));
+    }
+
+    @ApiMessage("Gửi yêu cầu cập nhật mật khẩu thành công!")
+    @PostMapping("request-reset-password")
+    public ResponseEntity<Void> requestResetPassword(@RequestBody @Valid EmailRequest request) {
+        return ResponseEntity.ok(userService.sendRequestResetPassword(request));
+    }
+
+    @ApiMessage("Cập nhật mật khẩu thành công!")
+    @PostMapping("reset-password")
+    public ResponseEntity<Void> resetPassword(@RequestBody @Valid ResetPasswordRequest request) {
+        return ResponseEntity.ok(userService.resetPassword(request));
     }
 
 }

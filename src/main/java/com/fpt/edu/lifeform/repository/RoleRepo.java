@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface RoleRepository extends JpaSpecificationRepository<RoleEntity, Long> {
+public interface RoleRepo extends JpaSpecificationRepository<RoleEntity, Long> {
     Optional<RoleEntity> findByName(RoleEnum roleName);
 }

@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
 
@@ -15,5 +16,5 @@ public interface OTPRepo extends JpaSpecificationRepository<OTPEntity, Long> {
     Optional<OTPEntity> findByCode(String code);
 
     @Query("SELECT o FROM OTPEntity o WHERE o.expiredAt < :currentTime")
-    Set<OTPEntity> findAllExpiredOTP(@Param("currentTime") Instant currentTime);
+    Set<OTPEntity> findAllExpiredOTP(@Param("currentTime") LocalDateTime currentTime);
 }

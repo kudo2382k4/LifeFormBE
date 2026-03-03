@@ -1,6 +1,7 @@
 package com.fpt.edu.lifeform.controller;
 
 import com.fpt.edu.lifeform.dto.request.CredentialsLoginRequest;
+import com.fpt.edu.lifeform.dto.request.SocialsLoginRequest;
 import com.fpt.edu.lifeform.dto.response.LoginResponse;
 import com.fpt.edu.lifeform.service.auth.AuthService;
 import com.fpt.edu.lifeform.service.auth.JwtService;
@@ -18,6 +19,11 @@ public class AuthController {
     @PostMapping("/login/credential")
     public LoginResponse credentialLogin(@RequestBody CredentialsLoginRequest credentialsLoginRequest) {
         return authService.credentialsLogin(credentialsLoginRequest);
+    }
+
+    @PostMapping("/login/socials")
+    public LoginResponse socialLogin(@RequestBody SocialsLoginRequest socialsLoginRequest) {
+        return authService.socialsLogin(socialsLoginRequest);
     }
 
     @GetMapping("/refresh")
