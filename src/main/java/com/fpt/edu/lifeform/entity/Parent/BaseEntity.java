@@ -14,6 +14,7 @@ public class BaseEntity {
     Long id;
 
     LocalDateTime createdAt;
+
     LocalDateTime updatedAt;
 
     public void initDefault() {
